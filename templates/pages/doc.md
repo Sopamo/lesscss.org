@@ -1,4 +1,4 @@
-LESS ist wie eine Erweiterung für CSS und ist deswegen nicht nur Abwärtskompatibel, sondern die zusätzlichen Features nutzen <em>ebenso</em> CSS Syntax. Dadurch wird das Lernen von LESS ein <em>Kinderspiel</em>. Und Notfalls kann man immer noch CSS verwenden.
+LESS ist wie eine Erweiterung für CSS und ist deswegen nicht nur Abwärtskompatibel, sondern die zusätzlichen Features nutzen <em>ebenso</em> CSS Syntax. Dadurch wird das Lernen von LESS ein <em>Kinderspiel</em>. Und notfalls kann man immer noch CSS verwenden.
 
 Variablen
 ---------
@@ -49,7 +49,7 @@ der Klasse deren Attribute wir übernehmen möchten ein:
       .bordered;
     }
 
-Die Werte der `.bordered' Klasse tauchen nun wie Magie in '#menu a' und `.post a`auf:
+Die Werte der `.bordered Klasse tauchen nun wie durch Magie in #menu a` und `.post a` auf:
 
     #menu a {
       color: #111;
