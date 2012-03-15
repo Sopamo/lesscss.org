@@ -1,6 +1,6 @@
 As an extension to CSS, LESS is not only backwards compatible with CSS, but the extra features it adds use <em>existing</em> CSS syntax. This makes learning LESS a <em>breeze</em>, and if in doubt, lets you fall back to CSS.
 
-Variables
+Variablen
 ---------
 
 These are pretty self-explanatory:
