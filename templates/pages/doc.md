@@ -16,7 +16,7 @@ Outputs:
 
 It is also possible to define variables with a variable name:
 
-    @fnord: "I am fnord.";
+    @fnord: "Ich bin fnord.";
     @var: 'fnord';
     content: @@var;
 
