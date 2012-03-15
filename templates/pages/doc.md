@@ -1,43 +1,44 @@
-As an extension to CSS, LESS is not only backwards compatible with CSS, but the extra features it adds use <em>existing</em> CSS syntax. This makes learning LESS a <em>breeze</em>, and if in doubt, lets you fall back to CSS.
+LESS ist wie eine Erweiterung für CSS und ist deswegen nicht nur Abwärtskompatibel, sondern die zusätzlichen Features nutzen <em>ebenso</em> CSS Syntax. Dadurch wird das Lernen von LESS ein <em>Kinderspiel</em>. Und Notfalls kann man immer noch CSS verwenden.
 
 Variablen
 ---------
 
-These are pretty self-explanatory:
+Das ist so ziemlich selbsterklärend:
 
     @nice-blue: #5B83AD;
     @light-blue: @nice-blue + #111;
 
     #header { color: @light-blue; }
 
-Outputs:
+Wird zu:
 
     #header { color: #6c94be; }
 
-It is also possible to define variables with a variable name:
+Es ist außerdem möglich Variablen mit einem variablen Namen zu definieren:
 
     @fnord: "Ich bin fnord.";
     @var: 'fnord';
     content: @@var;
 
-Which compiles to:
+Wird umgewandelt zu:
 
-    content: "I am fnord.";
+    content: "Ich bin fnord.";
 
-Note that variables in LESS are actually 'constants' in that they can only be defined once.
+Denk daran, dass Variablen in LESS eigentlich Konstanten sind. Daher können sie nur einmal definiert werden.
 
 Mixins
 ------
 
-In LESS, it is possible to include a bunch of properties from one ruleset into another ruleset. So say we have the following class:
+In LESS können Attribute einer Klasse ganz einfach einer anderen übergeben werden.
+Wenn wir beispielsweise folgende Klasse nehmen:
 
     .bordered {
       border-top: dotted 1px black;
       border-bottom: solid 2px black;
     }
 
-And we want to use these properties inside other rulesets. Well, we just have to drop in the name of
-the class in any ruleset we want to include its properties, like so:
+Wenn wir diese Attribute nun in einer anderen Klasse verwenden möchten, fügen wir einfach den Namen
+der Klasse deren Attribute wir übernehmen möchten ein:
 
     #menu a {
       color: #111;
@@ -48,7 +49,7 @@ the class in any ruleset we want to include its properties, like so:
       .bordered;
     }
 
-The properties of the `.bordered` class will now appear in both `#menu a` and `.post a`:
+Die Werte der `.bordered' Klasse tauchen nun wie Magie in '#menu a' und `.post a`auf:
 
     #menu a {
       color: #111;
@@ -61,7 +62,7 @@ The properties of the `.bordered` class will now appear in both `#menu a` and `.
       border-bottom: solid 2px black;
     }
 
-Any CSS *class*, *id* or *element* ruleset can be mixed-in that way.
+Jede beliebige CSS *Klasse*, *id* oder *element* kann so verwendet werden.
 
 Parametric Mixins
 -----------------
