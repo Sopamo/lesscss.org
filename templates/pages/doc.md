@@ -49,7 +49,7 @@ der Klasse deren Attribute wir übernehmen möchten ein:
       .bordered;
     }
 
-Die Werte der `.bordered Klasse tauchen nun wie durch Magie in #menu a` und `.post a` auf:
+Die Werte der `.bordered` Klasse tauchen nun wie durch Magie in `#menu a` und `.post a` auf:
 
     #menu a {
       color: #111;
@@ -67,7 +67,7 @@ Jede beliebige CSS *Klasse*, *id* oder *element* kann so verwendet werden.
 Mixins mit Parametern
 -----------------
 
-LESS has a special type of ruleset which can be mixed in like classes, but accepts parameters. Here's the canonical example:
+LESS bietet eine spezielle Art CSS Regeln zu definieren. Sie können genauso wie Klassen eingesetzt werden, akzeptieren allerdings auch Parameter. Hier ein Beispiel:
 
     .border-radius (@radius) {
       border-radius: @radius;
@@ -75,7 +75,7 @@ LESS has a special type of ruleset which can be mixed in like classes, but accep
       -webkit-border-radius: @radius;
     }
 
-And here's how we can mix it into various rulesets:
+Und so werden sie eingesetzt:
 
     #header {
       .border-radius(4px);
@@ -84,7 +84,7 @@ And here's how we can mix it into various rulesets:
       .border-radius(6px);  
     }
 
-Parametric mixins can also have default values for their parameters:
+Es können auch Standardwerte vorgegeben werden:
 
     .border-radius (@radius: 5px) {
       border-radius: @radius;
@@ -92,16 +92,15 @@ Parametric mixins can also have default values for their parameters:
       -webkit-border-radius: @radius;
     }
 
-We can invoke it like this now:
+Der Aufruf sieht dann so aus:
 
     #header {
       .border-radius;  
     }
 
-And it will include a 5px border-radius.
+Und wird einen 5px border-radius einfügen.
 
-You can also use parametric mixins which don't take parameters. This is useful if you want to hide the ruleset from the CSS output,
-but want to include its properties in other rulesets:
+Wenn man einen Mixin ohne Parameter definiert, wird die Klasse nicht im fertigen CSS auftauchen, man kann sie allerdings wie gewohnt in LESS einsetzen.
 
     .wrap () {
       text-wrap: wrap;
@@ -112,7 +111,7 @@ but want to include its properties in other rulesets:
 
     pre { .wrap }
 
-Which would output:
+Das würde also folgendes geben. Wie erwartet ist die .wrap Klasse nicht mehr vorhanden.
 
     pre {
       text-wrap: wrap;
@@ -121,10 +120,9 @@ Which would output:
       word-wrap: break-word;
     }
 
-### The `@arguments` variable
+### Die Variable `@arguments`
 
-`@arguments` has a special meaning inside mixins, it contains all the arguments passed, when the mixin was called. This is useful
-if you don't want to deal with individual parameters:
+`@arguments` hat innerhalb von Mixins eine besondere Bedeutung. Die Variable enthält alle Parameter die beim Aufruf des Mixins mitgegeben wurden. Das ist sehr nützlich wenn man sich nicht um jeden einzelnen Parameter kümmern möchte:
 
     .box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
       box-shadow: @arguments;
@@ -133,17 +131,18 @@ if you don't want to deal with individual parameters:
     }
     .box-shadow(2px, 5px);
 
-Which results in:
+Das ergibt dann:
 
       box-shadow: 2px 5px 1px #000;
       -moz-box-shadow: 2px 5px 1px #000;
       -webkit-box-shadow: 2px 5px 1px #000;
 
-Nested rules
+Verschachtelte Regeln
 ------------
 
 LESS gives you the ability to use *nesting* instead of, or in combination with cascading.
 Lets say we have the following CSS:
+Mit LESS kann man neben dem üblichen `cascading` auch *nesting* - also das Verschachteln von Regeln - einsetzen. So kann man etwa das folgende CSS...
 
     #header { color: black; }
     #header .navigation {
@@ -156,7 +155,7 @@ Lets say we have the following CSS:
       text-decoration: none;
     }
 
-In LESS, we can also write it this way:
+... in LESS so schreiben:
 
     #header {
       color: black;
@@ -170,7 +169,7 @@ In LESS, we can also write it this way:
       }
     }
 
-Or this way:
+Oder so:
 
     #header        { color: black;
       .navigation  { font-size: 12px }
