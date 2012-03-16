@@ -140,8 +140,6 @@ Das ergibt dann:
 Verschachtelte Regeln
 ------------
 
-LESS gives you the ability to use *nesting* instead of, or in combination with cascading.
-Lets say we have the following CSS:
 Mit LESS kann man neben dem üblichen `cascading` auch *nesting* - also das Verschachteln von Regeln - einsetzen. So kann man etwa das folgende CSS...
 
     #header { color: black; }
