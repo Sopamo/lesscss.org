@@ -1,4 +1,4 @@
-LESS ist wie eine Erweiterung für CSS und ist deswegen nicht nur Abwärtskompatibel, sondern die zusätzlichen Features nutzen <em>ebenso</em> CSS Syntax. Dadurch wird das Lernen von LESS ein <em>Kinderspiel</em>. Und notfalls kann man immer noch CSS verwenden.
+LESS ist eine Erweiterung für CSS und ist deswegen nicht nur Abwärtskompatibel, sondern die zusätzlichen Features nutzen <em>ebenso</em> CSS Syntax. Dadurch wird das Lernen von LESS ein <em>Kinderspiel</em>. Und notfalls kann man immer noch CSS verwenden.
 
 Variablen
 ---------
@@ -64,7 +64,7 @@ Die Werte der `.bordered Klasse tauchen nun wie durch Magie in #menu a` und `.po
 
 Jede beliebige CSS *Klasse*, *id* oder *element* kann so verwendet werden.
 
-Parametric Mixins
+Mixins mit Parametern
 -----------------
 
 LESS has a special type of ruleset which can be mixed in like classes, but accepts parameters. Here's the canonical example:
