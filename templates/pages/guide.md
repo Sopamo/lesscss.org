@@ -75,12 +75,8 @@ LESS hat auch eine binary mit der du den Compiler von der Kommandozeile aus aufr
 
     $ lessc styles.less
 
-This will output the compiled CSS to `stdout`, you may then redirect it to a file of your choice:
-Das gibt das fertige CSS an `stdout`. Du kannst es dann an eine beliebige Datei weiterleiten.
+Das übergibt das fertige CSS an `stdout`. Du kannst es dann an eine beliebige Datei weiterleiten.
 
     $ lessc styles.less > styles.css
 
-To output minified CSS, simply pass the `-x` option. If you would like more involved minification,
-the [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) is also available with
-the `--yui-compress` option.
 Um komprimiertes CSS zu erhalten übergebe einfach die `-x`Option. Für eine erweiterte Komprimierung steht auch der [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) über die `--yui-compress` Option zur Verfügung.
