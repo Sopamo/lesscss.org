@@ -111,7 +111,7 @@ Wenn man einen Mixin ohne Parameter definiert, wird die Klasse nicht im fertigen
 
     pre { .wrap }
 
-Das würde also folgendes geben. Wie erwartet ist die .wrap Klasse nicht mehr vorhanden.
+Das würde also folgendes ausgeben. Wie erwartet ist die .wrap Klasse nicht mehr vorhanden.
 
     pre {
       text-wrap: wrap;
