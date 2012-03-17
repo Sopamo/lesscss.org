@@ -1,8 +1,6 @@
 Variablen
 ---------
 
-Variables allow you to specify widely used values in a single place, and then re-use them throughout the style sheet,
-making global changes as easy as changing one line of code.
 Mit Variablen kannst du oft gebrauchte Werte an einer zentralen Stelle setzen und sie dann überall in deiner CSS Datei verwenden. Somit musst du bei globalen Änderungen nur noch eine einzige Zeile ändern.
 
 <table class="code-example" cellpadding="0">
@@ -33,10 +31,6 @@ h2 {
 Mixins
 ------
 
-Mixins allow you to embed all the properties of a class into another class by
-simply including the class name as one of its properties. It's just like variables,
-but for whole classes. Mixins can also behave like functions, and take arguments,
-as seen in the example bellow.
 Mit Mixins kannst du alle Werte einer Klasse an eine andere Klasse übergeben. Dafür musst du nur den Namen der Klasse angeben. Das Prinzip ist ähnlich wie bei Variablen, jedoch auf ganze Klassen erweitert. Mixins können sich auch wie Funktionen verhalten, also Parameter akzeptieren. Ein Beispiel:
 
 <table class="code-example" cellpadding="0">
@@ -97,7 +91,7 @@ Anstatt lange Selektoren zu schreiben um Vererbungen zu erzeugen, kannst du in L
 </code></pre></td>
 
 <td>
-  <pre class="css-output"><code>/* Compiled CSS */
+  <pre class="css-output"><code>/* Generiertes CSS */
 
 #header h1 {
   font-size: 26px;
@@ -117,14 +111,12 @@ Anstatt lange Selektoren zu schreiben um Vererbungen zu erzeugen, kannst du in L
   </td></tr>
 </table>
 		
-Functions & Operations
+Funktionen & Operatoren
 ----------------------
 
-Are some elements in your style sheet proportional to other elements?
-Operations let you add, subtract, divide and multiply property values and colors,
-giving you the power to create complex relationships between properties.
-Functions map one-to-one with JavaScript code, allowing you to manipulate values however
-you want.
+Hängen manche Elemente in deiner CSS Datei mit anderen zusammen?
+Mit Operatoren kannst du Werte und Farben addieren, subtrahieren, dividieren und multiplizieren. Dadurch kannst du komplexe Zusammenhänge innerhalb deiner CSS Datei erstellen.
+Funktionen funktionieren genauso wie in JavaScript. Dadurch kannst du die Werte genau so manipulieren wie du möchtest.
 
 <table class="code-example" cellpadding="0">
   <tr><td>
@@ -148,7 +140,7 @@ you want.
 </code></pre></td>
 
 <td>
-  <pre class="css-output"><code>/* Compiled CSS */
+  <pre class="css-output"><code>/* Generiertes CSS */
 
 #header {
   color: #333;
