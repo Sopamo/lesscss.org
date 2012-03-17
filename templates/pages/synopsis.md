@@ -1,8 +1,9 @@
-Variables
+Variablen
 ---------
 
 Variables allow you to specify widely used values in a single place, and then re-use them throughout the style sheet,
 making global changes as easy as changing one line of code.
+Mit Variablen kannst du oft gebrauchte Werte an einer zentralen Stelle setzen und sie dann überall in deiner CSS Datei verwenden. Somit musst du bei globalen Änderungen nur noch eine einzige Zeile ändern.
 
 <table class="code-example" cellpadding="0">
   <tr><td>
@@ -18,7 +19,7 @@ h2 {
   color: @color;
 }</code></pre>
   </td><td>
-  <pre class="css-output"><code>/* Compiled CSS */
+  <pre class="css-output"><code>/* Generiertes CSS */
 
 #header {
   color: #4D926F;
@@ -36,6 +37,7 @@ Mixins allow you to embed all the properties of a class into another class by
 simply including the class name as one of its properties. It's just like variables,
 but for whole classes. Mixins can also behave like functions, and take arguments,
 as seen in the example bellow.
+Mit Mixins kannst du alle Werte einer Klasse an eine andere Klasse übergeben. Dafür musst du nur den Namen der Klasse angeben. Das Prinzip ist ähnlich wie bei Variablen, jedoch auf ganze Klassen erweitert. Mixins können sich auch wie Funktionen verhalten, also Parameter akzeptieren. Ein Beispiel:
 
 <table class="code-example" cellpadding="0">
   <tr><td>
@@ -55,7 +57,7 @@ as seen in the example bellow.
 }</code></pre></td>
 
 <td>
-  <pre class="css-output"><code>/* Compiled CSS */
+  <pre class="css-output"><code>/* Generiertes CSS */
 
 #header {
   border-radius: 5px;
@@ -70,12 +72,10 @@ as seen in the example bellow.
   </td></tr>
 </table>
 
-Nested Rules
+Verschachtelung
 ------------
 
-Rather than constructing long selector names to specify inheritance,
-in Less you can simply nest selectors inside other selectors.
-This makes inheritance clear and style sheets shorter.
+Anstatt lange Selektoren zu schreiben um Vererbungen zu erzeugen, kannst du in LESS einfach Selektoren ineinander verschachteln. Dadurch wird die Struktur klarer und du hast weniger zu tippen.
 
 <table class="code-example" cellpadding="0">
   <tr><td>
