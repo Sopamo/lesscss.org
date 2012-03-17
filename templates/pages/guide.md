@@ -1,38 +1,37 @@
-Client-side usage
+Client-seitige Verwendung
 =================
 
-Link your `.less` stylesheets with the `rel` set to "`stylesheet/less`":
+Binde deine `.less` Stylesheets mit dem `rel Attribut` "`stylesheet/less`" ein:
 
     <link rel="stylesheet/less" type="text/css" href="styles.less">
 
-Then download `less.js` from the top of the page, and include it in the `<head>` element of your page, like so:
+Lade anschließend die `less.js` Datei herunter (du findest sie ganz oben auf der Seite) und binde sie im `<head>` Bereich deiner Seite ein:
 
     <script src="less.js" type="text/javascript"></script>
 
-Make sure you include your stylesheets *before* the script.
+Achte darauf deine Stylesheets *vor* dem Script einzubinden.
 
 Watch mode
 ----------
 
-*Watch mode* is a client-side feature which enables your styles to refresh automatically as they are changed.
+Der *Watch mode* ist eine Client-seitiges Feature mit dem deine LESS Dateien automatisch neu geladen werden wenn du sie änderst.
 
-To enable it, append '`#!watch`' to the browser URL, then refresh the page. Alternatively, you can
-run `less.watch()` from the console.
+Zum aktivieren hänge '`#!watch`' an die URL an und lade die Seite neu. Alternativ kannst du auch `less.watch()` in der Konsole aufrufen.
 
-Server-side usage
+Server-seitige Verwendung
 =================
 
 Installation
 ------------
 
-The easiest way to install LESS on the server, is via [npm](http://github.com/isaacs/npm), the node package manager, as so:
+[npm](http://github.com/isaacs/npm), die Node Paketverwaltung ist der einfachste Weg LESS auf deinem Server zu installieren:
 
     $ npm install less
 
-Use
+Verwendung
 ---
 
-Once installed, you can invoke the compiler from node, as such:
+Sobald du LESS installiert hast, kannst du den Compiler in Node aufrufen:
 
     var less = require('less');
     
@@ -40,13 +39,13 @@ Once installed, you can invoke the compiler from node, as such:
         console.log(css);
     });
 
-which will output
+Das ergibt:
 
     .class {
       width: 2;
     }
 
-you may also manually invoke the parser and compiler:
+Du kannst den Parser und Compiler auch einzeln aufrufen:
 
     var parser = new(less.Parser);
 
@@ -55,31 +54,33 @@ you may also manually invoke the parser and compiler:
         console.log(tree.toCSS());
     });
 
-Configuration
+Konfiguration
 -------------
 
-You may pass some options to the compiler:
+Du kannst dem Compiler außerdem einige Einstellungen mitgeben:
 
     var parser = new(less.Parser)({
-        paths: ['.', './lib'], // Specify search paths for @import directives
-        filename: 'style.less' // Specify a filename, for better error messages
+        paths: ['.', './lib'], // Den Suchpfad für @import festlegen
+        filename: 'style.less' // Für schönere Fehlermeldungen einen Dateinamen festlegen
     });
 
     parser.parse('.class { width: 1 + 1 }', function (e, tree) {
-        tree.toCSS({ compress: true }); // Minify CSS output
+        tree.toCSS({ compress: true }); // CSS komprimieren
     });
 
-Command-line usage
+Verwendung in der Kommandozeile
 ------------------
 
-Less comes with a binary, which lets you invoke the compiler from the command-line, as such:
+LESS hat auch eine binary mit der du den Compiler von der Kommandozeile aus aufrufen kannst:
 
     $ lessc styles.less
 
 This will output the compiled CSS to `stdout`, you may then redirect it to a file of your choice:
+Das gibt das fertige CSS an `stdout`. Du kannst es dann an eine beliebige Datei weiterleiten.
 
     $ lessc styles.less > styles.css
 
 To output minified CSS, simply pass the `-x` option. If you would like more involved minification,
 the [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) is also available with
 the `--yui-compress` option.
+Um komprimiertes CSS zu erhalten übergebe einfach die `-x`Option. Für eine erweiterte Komprimierung steht auch der [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) über die `--yui-compress` Option zur Verfügung.
