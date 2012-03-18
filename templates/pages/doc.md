@@ -549,8 +549,7 @@ Du kannst sogar auf die JavaScript Objekte wie `document` zugreifen!
 
     @height: `document.body.clientHeight`;
 
-If you want to parse a JavaScript string as a hex color, you may use the `color` function:
-Wenn du einen JavaScript string in 
+Wenn du einen JavaScript String in eine HEX-Farbe umwandeln möchtest kannst du die `color` Funktion verwenden:
 
     @color: color(`window.colors.baseColor`);
     @darkcolor: darken(@color, 10%);
