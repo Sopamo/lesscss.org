@@ -1,7 +1,7 @@
 Variablen
 ---------
 
-Mit Variablen kannst du oft gebrauchte Werte an einer zentralen Stelle setzen und sie dann überall in deiner CSS Datei verwenden. Somit musst du bei globalen Änderungen nur noch eine einzige Zeile ändern.
+Mit Variablen kannst du oft gebrauchte Werte an einer zentralen Stelle definieren und sie dann überall in deiner CSS Datei verwenden. Somit musst du bei globalen Änderungen nur noch eine einzige Zeile ändern.
 
 <table class="code-example" cellpadding="0">
   <tr><td>
