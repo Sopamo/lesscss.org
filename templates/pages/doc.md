@@ -429,7 +429,7 @@ Wenn du einen Wert in eine Prozentzahl umwandeln möchtest kannst du die `percen
 
     percentage(0.5); // Ergibt `50%`
 
-Namensräume - bekannt als Namespaces
+Namespaces
 ----------
 
 Manchmal ist es sinnvoll deine Variablen und Mixins zu gruppieren. Das sorgt für bessere Organisation und Abkapselung.
