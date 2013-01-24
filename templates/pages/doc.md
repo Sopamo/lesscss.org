@@ -6,7 +6,7 @@ Variablen
 Das ist so ziemlich selbsterklärend:
 
     @nice-blue: #5B83AD;
-    @light-blue: @nice-blue + #111;
+    @light-blue: (@nice-blue + #111);
 
     #header { color: @light-blue; }
 
@@ -24,7 +24,31 @@ Wird umgewandelt zu:
 
     content: "Ich bin fnord.";
 
-Denk daran, dass Variablen in LESS eigentlich Konstanten sind. Daher können sie nur einmal definiert werden.
+When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. For instance:
+Wenn eine Variable doppelt definiert wird, wird die letzte Definition verwendet indem vom aktuellen Geltungsbereich nach oben gesucht wird.
+Zum Beispiel:
+
+    @var: 0;
+    .class1
+      @var: 1;
+      .class {
+        @var: 2;
+        three: @var;
+        @var: 3;
+      }
+      one: @var;
+    }
+
+Ergibt:
+
+    .class1 .class {
+      three: 3;
+    }
+    .class {
+      one: 1;
+    }
+
+Dies ist ähnlich wie bei CSS selbst wo immer das letzte definierte Attribut ausschlaggebend ist.
 
 Mixins
 ------
@@ -63,6 +87,8 @@ Die Werte der `.bordered` Klasse tauchen nun wie durch Magie in `#menu a` und `.
     }
 
 Jede beliebige CSS *Klasse*, *id* oder *element* kann so verwendet werden.
+
+Anmerkung: Variablen aus Mixins sind auch im aktuellen Geltungsbereich verfügbar. Dies ist allerdings umstritten und kann sich in Zukungt ändern.
 
 Mixins mit Parametern
 -----------------
@@ -136,7 +162,24 @@ Das ergibt dann:
       box-shadow: 2px 5px 1px #000;
       -moz-box-shadow: 2px 5px 1px #000;
       -webkit-box-shadow: 2px 5px 1px #000;
-      
+
+### Parameter für Fortgeschrittene und die `@rest` Variable
+
+Du kannst `...` verwenden damit ein Mixin eine variable Anzahl an Parametern akzeptiert. Wenn man dies nach einer Variable verwendet, werden die Parameter der Variable zuweisen.
+
+    .mixin (...) {        // akzeptiert 0-N Parameter
+    .mixin () {           // akzeptiert genau 0 Parameter
+    .mixin (@a: 1) {      // akzeptiert 0-1 Parameter
+    .mixin (@a: 1, ...) { // akzeptiert 0-N Parameter
+    .mixin (@a, ...) {    // akzeptiert 1-N Parameter
+
+Außerdem:
+
+    .mixin (@a, @rest...) {
+        // @rest enthält alle Parameter nach @a
+        // @arguments enthält wie üblich alle Parameter
+    }
+
 ## Pattern-matching und Guards
 
 Manchmal möchte man das Verhalten eines Mixins anhand der übergebenen Parameter verändern.
@@ -347,22 +390,79 @@ Das ergibt:
       margin: 5px;
     }
 
+Verschachtelte Media Queries
+----------------------------
+
+Media queries können genauso wie Selektoren verschachtelt werden:
+
+    .one {
+	    @media (width: 400px) {
+			font-size: 1.2em;
+		    @media print and color {
+			    color: blue;
+            }
+		}
+	}
+
+Ergibt:
+
+	@media (width: 400px) {
+	  .one {
+		font-size: 1.2em;
+	  }
+	}
+	@media (width: 400px) and print and color {
+	  .one {
+		color: blue;
+	  }
+	}
+
+Fortgeschrittene Verwendung von &
+-------------------
+
+Das & Symbol kann in Selektoren verwendet werden um die Reihenfolge der Verschachtelung umzudrehen oder um Klassen zu multiplizieren.
+Sieh dir dazu das folgende Beispiel an:
+
+    .child, .sibling {
+	    .parent & {
+		    color: black;
+		}
+		& + & {
+		    color: red;
+		}
+	}
+
+Ergibt
+
+    .parent .child,
+    .parent .sibling {
+	    color: black;
+	}
+	.child + .child,
+    .child + .sibling,
+	.sibling + .child,
+	.sibling + .sibling {
+	    color: red;
+	}
+
+Du kannst & auch in Mixins verwenden um etwas zu referenzieren, was außerhalb von dem Mixin liegt.
+
 Berechnungen
 ----------
 
 Es kann mit jeder Zahl, Farbe oder Variable gerechnet werden. Hier einige Beispiele:
 
     @base: 5%;
-    @filler: @base * 2;
-    @other: @base + @filler;
+    @filler: (@base * 2);
+    @other: (@base + @filler);
 
-    color: #888 / 4;
-    background-color: @base-color + #111;
-    height: 100% / 2 + @filler;
+    color: (#888 / 4);
+    background-color: (@base-color + #111);
+    height: (100% / 2 + @filler);
 
 Das Ergebnis ist genau so wie wir es erwarten - LESS versteht den Unterschied zwischen Farben und Einheiten. Wenn eine Einheit in einer Berechnung enthalten ist, wird LESS sie beibehalten:
 
-    @var: 1px + 5;
+    @var: (1px + 5);
 
 Wir erhalten also `6px`.
 
@@ -370,64 +470,26 @@ Auch Klammern können verwendet werden:
 
     width: (@var + 5) * 2;
 
-In zusammengesetzten Werten sind sie Pflicht:
+Auch extra Klammern sind erlaubt:
 
-    border: (@width * 2) solid black;
+    width: ((@var + 5) * 2);
 
-Farbfunktionen
----------------
+Funktionen
+----------
 
-LESS bietet eine Vielzahl an Funktionen um Farben zu verändern. Intern werden die Farben zum *HSL*-Farbraum konvertiert. Anschließend werden die Kanäle manipuliert:
+LESS bietet eine Vielzahl an Funktionen die Farben transformieren, Strings verändern und Mathematische Funktionen ausführen. Sie sind vollständig in der Funktionsreferenz dokumentiert.
 
-    lighten(@color, 10%);     // Eine 10% *hellere* Farbe als @color
-    darken(@color, 10%);      // Eine 10% *dunklere* Farbe als @color
+Using them is pretty straightforward. The following example uses percentage to convert 0.5 to 50%, increases the saturation of a base color by 5% and then sets the background color to one that is lightened by 25% and spun by 8 degrees:
+Die Verwendung ist recht einfach. Das folgende Beispiel verwendet Prozente um 0.5 in 50% umzuwandeln, erhöht die Sättigung einer Grundfarbe um 5% und setzt die Hintergrundfarbe auf eine Farbe die um 25% heller und um 8 Grad gedreht ist:
 
-    saturate(@color, 10%);    // Ergibt eine Farbe mit 10% *höherer* Sättigung
-    desaturate(@color, 10%);  // Ergibt eine Farbe mit 10% *niedrigerer* Sättigung
+@base: #f04615;
+@width: 0.5;
 
-    fadein(@color, 10%);      // Ergibt eine Farbe mit 10% *niedrigerer* Transparenz
-    fadeout(@color, 10%);     // Ergibt eine Farbe mit 10% *höherer* Transparenz
-    fade(@color, 50%);        // Ergibt @color mit 50% Transparenz
-
-    spin(@color, 10);         // Ergibt eine Farbe mit 10 Grad nach *oben* verschobenem Farbton
-    spin(@color, -10);        // Ergibt eine Farbe mit 10 Grad nach *unten* verschobenem Farbton
-
-    mix(@color1, @color2);    // Ein Mix aus @color1 und @color2
-
-Die Verwendung ist unkompliziert:
-
-    @base: #f04615;
-
-    .class {
-      color: saturate(@base, 5%);
-      background-color: lighten(spin(@base, 8), 25%);
-    }
-
-Du kannst auch ganz einfach Farbinformationen extrahieren:
-
-    hue(@color);        // Ergibt den `Farbton` von @color
-    saturation(@color); // Ergibt die `Sättigung` von @color
-    lightness(@color);  // Ergibt die `Helligkeit` von @color
-    alpha(@color);      // Ergibt den `Alpha Kanal` - als die Transparenz - von @color
-
-Das ist besonders nützlich, wenn du eine neue Farbe anhand von verschiedenen anderen Farben erstellen möchtest:
-
-    @new: hsl(hue(@old), 45%, 90%);
-
-`@new` hat somit `@old`s *Farbton* und seine eigene Sättigung und Helligkeit.
-
-Mathematische Funktionen
---------------
-
-LESS bietet einige mathematischen Funktionen mit denen du Zahlenwerte berechnen kannst:
-
-    round(1.67); // Ergibt `2`
-    ceil(2.4);   // Ergibt `3`
-    floor(2.6);  // Ergibt `2`
-
-Wenn du einen Wert in eine Prozentzahl umwandeln möchtest kannst du die `percentage` Funktion verwenden:
-
-    percentage(0.5); // Ergibt `50%`
+.class {
+  width: percentage(0.5); // ergibt `50%`
+  color: saturate(@base, 5%);
+  background-color: spin(lighten(@base, 25%), 8);
+}
 
 Namespaces
 ----------
@@ -493,11 +555,19 @@ Die Erweiterung `.less` ist optional:
     @import "lib.less";
     @import "lib";
 
-Dateien mit der Erweiterung `.css` rührt der LESS Parser nicht an.
+Wenn eine Datei bereits eine Dateiendung oder Parameter hat, wird ".less" nicht angefügt.
+Wenn du eine CSS Datei nur importieren möchtest und nicht willst, dass LESS sie verarbeitet nutze einfach die `.css` Dateiendung:
 
     @import "lib.css";
 
 Dadurch wird der CSS Code aus der lib.css einfach in die aktuelle Datei eingefügt.
+
+Wenn du eine Datei nur importieren möchtest wenn sie nicht bereits importiert wurde, kannst du `@import-once` verwenden.
+
+    @import-once "lib.less";
+    @import-once "lib.less"; // will be ignored
+
+`@import-once` wird ab 1.4.0 das Standardverhalten von @import sein.
 
 String interpolation
 --------------------
@@ -523,12 +593,32 @@ Das Ergebnis ist dann:
       filter: ms:alwaysHasItsOwnSyntax.For.Stuff();
     }
 
+Selektor Interpolation
+----------------------
+
+Wenn du LESS Variablen innerhalb von Selektoren verwenden möchtest, kannst du das tun indem du die Variable mit `@{selektor}` in einen String umwandelst.
+Zum Beispiel:
+
+    @name: blocked;
+	.@{name} {
+	    color: black;
+	}
+
+Ergibt
+
+    .blocked {
+	    color: black;
+	}
+
+Anmerkung: Vor LESS 1.3.1 war dies hier unterstützt: `(~"@{name}")`. Der Support dafür wird in Version 1.4.0 entfernt werden.
+
 JavaScript
 ---------------------
 
-JavaScript expressions can be evaluated as values inside .less files. This is done by wrapping the expression
-with back-ticks:
-Auch JavaScript kann in LESS verwendet werden. Dazu muss man den Ausdruck in Backticks "\`" setzen.
+Auch JavaScript kann in LESS verwendet werden.
+Wir empfehlen allerdings auf dieses Feature wenn möglich zu verzichten, da LESS von Ports (wie z.B. lessphp) dann nicht mehr compiliert werden kann und es schwieriger wird less zu warten.
+Wenn möglich, versuche dir eine Funktionalität auszudenken die das Gleiche erreicht und frage auf Github danach. Wir haben auch Pläne, die es erlauben werden die Funktionalität von LESS zu erweitern.
+Wenn du trotzdem JavaScript in LESS verwenden möchtest, musst du den Ausdruck in Backticks "\`" setzen.
 
     @var: `"hallo".toUpperCase() + '!'`;
 

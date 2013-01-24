@@ -15,9 +15,3 @@ Schreibe etwas LESS:
       border-color: lighten(@base, 30%);
       div { .box-shadow(0 0 5px, 30%) }
     }
-
-Binde `less.js` zusammen mit deiner LESS Datei ein:
-
-    <link rel="stylesheet/less" type="text/css" href="styles.less">
-    <script src="less.js" type="text/javascript"></script>
-

@@ -5,15 +5,15 @@
       <h2>Die <span>dynamische</span> stylesheet <span>Sprache</span>.</h2>
       <h3>
         LESS erweitert CSS mit dynamischem Verhalten wie <span>Variablen</span>, <span>Mixins</span>,
-        <span>Berechnungen</span> und <span>Funktionen</span>. LESS läuft auf sowohl auf dem <span>Client-seitig</span> (Chrome, Safari, Firefox) als auch 
-        Server-seitig, mit <span>Node.js</span> und <span>Rhino</span>.
+        <span>Berechnungen</span> und <span>Funktionen</span>. LESS läuft auf sowohl Server-seitig, mit <span>Node.js</span> und <span>Rhino</span> als auch <span>Client-seitig</span> (nur mit modernen Browsern)
       </h3>
-      <a id="download" href="http://lesscss.googlecode.com/files/less-1.3.0.min.js">
-        <img src="/images/download-button.png" /></a><div id="download-info">Version <code>1.3.0</code></div>
+        <a id="download" href="https://raw.github.com/cloudhead/less.js/master/dist/less-1.3.3.min.js">
+            <img src="/images/download-button.png"/></a><div id="download-info">version <code>1.3.3</code></div>
     </section>
 
     <section id="example">
     <%= markdown File.read(Toto::Paths[:pages] + '/example.md') %>
+    <%= markdown File.read(Toto::Paths[:pages] + '/usage-brief-serverside.md') %>
     </section>
   </div>
   <div style="clear: both"></div>
@@ -37,7 +37,7 @@
         <li><a href="#-pattern-matching-und-guards">Pattern-matching</a></li>
         <li><a href="#-verschachtelte-regeln">Verschachtelte Regeln</a></li>
         <li><a href="#-berechnungen">Berechnungen</a></li>
-        <li><a href="#-farbfunktionen">Farbfunktionen</a></li>
+        <li><a href="#-funktionen">Funktionen</a></li>
         <li><a href="#-namespaces">Namespaces</a></li>
         <li><a href="#-geltungsbereich">Geltungsbereich</a></li>
         <li><a href="#-kommentare">Kommentare</a></li>
@@ -47,26 +47,33 @@
   </div>
 </section>
 
-<section id="synopsis" class="page">
+<section id="synopsis" class="page page-dark">
   <div class="content">
     <%= markdown File.read(Toto::Paths[:pages] + '/synopsis.md') %>
   </div>
 </section>
 
-<section id="guide" class="page">
+<section id="usage" class="page page-dark">
   <div class="content">
-    <%= markdown File.read(Toto::Paths[:pages] + '/guide.md') %>
+    <%= markdown File.read(Toto::Paths[:pages] + '/usage.md') %>
   </div>
 </section>
 
-<section id="docs" class="page">
+<section id="docs" class="page page-light">
   <h1>Dokumentation</h1>
   <div class="content">
       <%= markdown File.read(Toto::Paths[:pages] + '/doc.md') %>
   </div>
 </section>
 
-<section id="translations" class="page">
+<section id="reference" class="page page-light">
+    <h1>Function Reference</h1>
+    <div class="content">
+        <%= markdown File.read(Toto::Paths[:pages] + '/reference.md') %>
+    </div>
+</section>
+
+<section id="translations" class="page page-dark">
   <div class="content">
     <h1>LESS in anderen Sprachen</h1>
     <ul>
@@ -75,16 +82,19 @@
         <li>Chinesisch: <a href="http://lesscss.net">http://lesscss.net</a></li>
         <li>Japanisch: <a href="http://less-ja.studiomohawk.com/">http://less-ja.studiomohawk.com/</a></li>
         <li>Weißrussisch: <a href="http://www.designcontest.com/show/lesscss-be">http://www.designcontest.com/show/lesscss-be</a></li>
+        <li>Portugiesisch: <a href="http://lesscss.loopinfinito.com.br/">http://lesscss.loopinfinito.com.br/</a></li>
+        <li>Polnisch: <a href="http://ciembor.github.com/lesscss.org/">http://ciembor.github.com/lesscss.org/</a></li>
+        <li>Indonesisch: <a href="http://bertzzie.com/post/7/dokumentasi-less-bahasa-indonesia">http://bertzzie.com/post/7/dokumentasi-less-bahasa-indonesia</a></li>
     </ul>
   </div>
 </section>
 
-<section id="about" class="page">
+<section id="about" class="page page-dark">
   <div class="content">
     <%= markdown File.read(Toto::Paths[:pages] + '/about.md') %>
     <footer>
         <p>powered by <a href="http://github.com/cloudhead/less.js">LESS</a></p>
-        <p id="copy">Copyright &copy; Alexis Sellier 2010-2012</p>
+        <p id="copy">Copyright &copy; Alexis Sellier 2010-2013</p>
     </footer>
   </div>
 </section>

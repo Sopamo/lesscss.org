@@ -1,5 +1,7 @@
 Client-seitige Verwendung
-=================
+=========================
+
+Die Client-seitige Verwendung ist der einfachste Weg um loszulegen und gut für die Entwicklung. Für die Produktivumgebung, besonders wenn Performance wichtig ist, empfehlen wir LESS mit node oder einem der vielen third party Tools zu kompilieren.
 
 Binde deine `.less` Stylesheets mit dem `rel Attribut` "`stylesheet/less`" ein:
 
@@ -19,7 +21,7 @@ Der *Watch mode* ist eine Client-seitiges Feature mit dem deine LESS Dateien aut
 Zum aktivieren hänge '`#!watch`' an die URL an und lade die Seite neu. Alternativ kannst du auch `less.watch()` in der Konsole aufrufen.
 
 Server-seitige Verwendung
-=================
+=========================
 
 Installation
 ------------
@@ -28,12 +30,25 @@ Installation
 
     $ npm install less
 
-Verwendung
----
+Verwendung mit der Kommandozeile
+--------------------------------
 
 Sobald du LESS installiert hast, kannst du den Compiler in Node aufrufen:
 
-    var less = require('less');
+    $ lessc styles.less
+
+Dies wird den das kompilierte CSS an `stdout` zurückgeben. Du kannst es dann an einen Datei deiner Wahl weiter leiten:
+
+ $ lessc styles.less > styles.css
+
+Um komprimiertes CSS auszugeben, übergib einfach die `-x` Option. Außerdem ist auch der [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) verfügbar, der mit `--yui-compress` aktiviert werden kann.
+
+Um alle Optionen anzuzeigen, rufe lessc ohne Parameter auf.
+
+Verwendung im Code
+------------------
+
+Du kannst den Kompiler von Node aus aufrufen:
     
     less.render('.class { width: 1 + 1 }', function (e, css) {
         console.log(css);
@@ -68,15 +83,11 @@ Du kannst dem Compiler außerdem einige Einstellungen mitgeben:
         tree.toCSS({ compress: true }); // CSS komprimieren
     });
 
-Verwendung in der Kommandozeile
-------------------
+Third Party Tools
+=================
 
-LESS hat auch eine binary mit der du den Compiler von der Kommandozeile aus aufrufen kannst:
+Es gibt eine Menge an Programmen die im Github wiki genauer beschrieben sind:
 
-    $ lessc styles.less
+<a href="https://github.com/cloudhead/less.js/wiki/Command-Line-use-of-LESS">Kommandozeilen Tools</a>
 
-Das übergibt das fertige CSS an `stdout`. Du kannst es dann an eine beliebige Datei weiterleiten.
-
-    $ lessc styles.less > styles.css
-
-Um komprimiertes CSS zu erhalten übergebe einfach die `-x`Option. Für eine erweiterte Komprimierung steht auch der [YUI CSS Compressor](http://developer.yahoo.com/yui/compressor/css.html) über die `--yui-compress` Option zur Verfügung.
+<a href="https://github.com/cloudhead/less.js/wiki/GUI-compilers-that-use-LESS.js">GUI Tools</a>
