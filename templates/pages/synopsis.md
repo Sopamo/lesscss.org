@@ -1,4 +1,4 @@
-<div style="text-align:center;margin-top: 10px;margin-bottom: 10px;>
+<div style="text-align:center;margin-top: 10px;margin-bottom: 10px;">
 Werbung<br>
 <script type="text/javascript" src="http://banners.webmasterplan.com/view.asp?ref=624865&js=1&site=5938&b=7&target=_blank&title=STRATO+LivePages+-+jetzt+bestellen!" ></script><noscript><a href="http://partners.webmasterplan.com/click.asp?ref=624865&site=5938&type=b7&bnb=7" target="_blank">
 <img src="http://banners.webmasterplan.com/view.asp?ref=624865&site=5938&b=7" border="0" alt="STRATO LivePages - jetzt bestellen!" width="468" height="60" /></a><br /></noscript>
