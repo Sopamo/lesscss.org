@@ -1,4 +1,4 @@
-<div style="text-align:center;margin-top: 10px;margin-bottom: 10px;">
+<div style="text-align:center;margin-top: 0px;margin-bottom: 20px;">
 Werbung<br>
 <script type="text/javascript" src="http://banners.webmasterplan.com/view.asp?ref=624865&js=1&site=1977&b=1&target=_blank&title=Jetzt+klicken!!" ></script><noscript><a href="http://partners.webmasterplan.com/click.asp?ref=624865&site=1977&type=b1&bnb=1" target="_blank">
 <img src="http://banners.webmasterplan.com/view.asp?ref=624865&site=1977&b=1" border="0" alt="Jetzt klicken!!" width="468" height="60" /></a><br /></noscript>

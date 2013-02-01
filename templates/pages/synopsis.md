@@ -1,7 +1,9 @@
-<div style="text-align:center;margin-top: 10px;margin-bottom: 10px;">
+<div style="text-align:center;margin-top: 20px;margin-bottom: 0px;">
 Werbung<br>
-<script type="text/javascript" src="http://banners.webmasterplan.com/view.asp?ref=624865&js=1&site=5938&b=7&target=_blank&title=STRATO+LivePages+-+jetzt+bestellen!" ></script><noscript><a href="http://partners.webmasterplan.com/click.asp?ref=624865&site=5938&type=b7&bnb=7" target="_blank">
-<img src="http://banners.webmasterplan.com/view.asp?ref=624865&site=5938&b=7" border="0" alt="STRATO LivePages - jetzt bestellen!" width="468" height="60" /></a><br /></noscript>
+<!-- BEGIN PARTNER PROGRAM - DO NOT CHANGE THE PARAMETERS OF THE HYPERLINK -->
+<script type="text/javascript" src="http://banners.webmasterplan.com/view.asp?ref=624865&js=1&site=5938&b=27&target=_blank&title=STRATO+Angebot+-+Hier+klicken!" ></script><noscript><a href="http://partners.webmasterplan.com/click.asp?ref=624865&site=5938&type=b27&bnb=27" target="_blank">
+<img src="http://banners.webmasterplan.com/view.asp?ref=624865&site=5938&b=27" border="0" alt="STRATO Angebot - Hier klicken!" width="468" height="60" /></a><br /></noscript>
+<!-- END PARTNER PROGRAM -->
 </div>
 
 Variablen
