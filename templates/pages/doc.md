@@ -24,7 +24,6 @@ Wird umgewandelt zu:
 
     content: "Ich bin fnord.";
 
-When defining a variable twice, the last definition of the variable is used, searching from the current scope upwards. For instance:
 Wenn eine Variable doppelt definiert wird, wird die letzte Definition verwendet indem vom aktuellen Geltungsbereich nach oben gesucht wird.
 Zum Beispiel:
 
