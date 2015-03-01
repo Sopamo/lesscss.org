@@ -1,1 +1,3 @@
 http://lesscss.de
+
+Deploy: git push heroku-cedar cedar:master
