@@ -743,13 +743,13 @@ Beispiele:
     screen(#ff6600, #00ff00);
 
 ![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999)
+![Color 2](http://placehold.it/100x40/999999/00ff00&text=00ff00)
 ![Color 3](http://placehold.it/100x40/ffff00/ffffff&text=ffff00)
 
     screen(#ff6600, #0000ff);
 
 ![Color 1](http://placehold.it/100x40/ff6600/ffffff&text=ff6600)
-![Color 2](http://placehold.it/100x40/999999/ffffff&text=999999)
+![Color 2](http://placehold.it/100x40/999999/0000ff&text=0000ff)
 ![Color 3](http://placehold.it/100x40/ff66ff/000000&text=ff66ff)
 
 ###overlay
