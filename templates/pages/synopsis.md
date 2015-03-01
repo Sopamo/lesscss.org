@@ -1,6 +1,10 @@
 <div style="text-align:center;margin-top: 20px;margin-bottom: 0px;">
 Werbung<br>
-<!-- BEGIN PARTNER PROGRAM - DO NOT CHANGE THE PARAMETERS OF THE HYPERLINK --><script language="javascript" type="text/javascript" src="http://www.banner-rotation.com/rotate.aspx?ref=624865&pool=1&pl=1"></script><!-- END PARTNER PROGRAM -->
+<!-- BEGIN PARTNER PROGRAM - DO NOT CHANGE THE PARAMETERS OF THE HYPERLINK -->
+<script language="javascript" type="text/javascript" src="http://banners.webmasterplan.com/view.asp?ref=624865&site=9192&type=html&hnb=1&js=1"></script>
+<noscript><a href="http://partners.webmasterplan.com/click.asp?ref=624865&site=9192&type=b1&bnb=1" target="_blank">
+<img src="http://banners.webmasterplan.com/view.asp?ref=624865&site=9192&b=1" border="0" title="Leaderboard / Super Banner (728 x 90)" alt="Leaderboard / Super Banner (728 x 90)"/></a><br /></noscript>
+<!-- END PARTNER PROGRAM -->
 </div>
 
 Variablen
