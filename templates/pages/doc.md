@@ -28,7 +28,7 @@ Wenn eine Variable doppelt definiert wird, wird die letzte Definition verwendet 
 Zum Beispiel:
 
     @var: 0;
-    .class1
+    .class1 {
       @var: 1;
       .class {
         @var: 2;
@@ -43,7 +43,7 @@ Ergibt:
     .class1 .class {
       three: 3;
     }
-    .class {
+    .class1 {
       one: 1;
     }
 
