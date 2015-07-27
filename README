@@ -1,3 +1,5 @@
+This is the newly to heroku cedar migrated version of lesscss.de
+
 http://lesscss.de
 
 Deploy: git push heroku-cedar cedar:master
