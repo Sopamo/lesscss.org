@@ -1,16 +1,3 @@
-<div style="text-align:center;margin-top: 20px;margin-bottom: 0px;">
-Werbung<br>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Oben -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-5460174920835439"
-     data-ad-slot="8319587707"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-
 Variablen
 ---------
 
